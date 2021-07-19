@@ -206,7 +206,7 @@ exports.image = function(img, opts, done) {
           return complete(err);
         }
 
-        var type = mime.lookup(img);
+        var type = mime.lookup(img.replace(".svg+xml", ".svg"));
         var encoded = getDataURI(type, src);
         complete(null, encoded, cacheable);
       });
